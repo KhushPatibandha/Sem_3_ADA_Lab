@@ -7,12 +7,22 @@ public class BellmanFord {
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> edges = new ArrayList<ArrayList<Integer>>();
 
+        // Test Case #1
         edges.add(new ArrayList<>(Arrays.asList(0, 1, 5)));
         edges.add(new ArrayList<>(Arrays.asList(1, 0, 3)));
         edges.add(new ArrayList<>(Arrays.asList(1, 2, -1)));
         edges.add(new ArrayList<>(Arrays.asList(2, 0, 1)));
-
         int[] result = bellmanFord(3, edges, 2);
+        
+        // Test Case #2
+        // edges.add(new ArrayList<>(Arrays.asList(0, 1, 1)));
+        // edges.add(new ArrayList<>(Arrays.asList(1, 2, -4)));
+        // edges.add(new ArrayList<>(Arrays.asList(2, 0, 2)));
+        // edges.add(new ArrayList<>(Arrays.asList(2, 3, 3)));
+        // edges.add(new ArrayList<>(Arrays.asList(0, 3, 1)));
+        // int[] result = bellmanFord(4, edges, 1);
+
+
         if (result[0] == -1) {
             System.out.println("Graph contains a negative cycle.");
         } else {
