@@ -61,9 +61,17 @@ public class Prims {
                 visited[node] = true;
                 sum += wt;
 
-                for(int i = 0; i < adj.get(node).size(); i++) {
-                    int edW = adj.get(node).get(i).get(1);
-                    int adjNode = adj.get(node).get(i).get(0);
+                // for(int i = 0; i < adj.get(node).size(); i++) {
+                //     int edW = adj.get(node).get(i).get(1);
+                //     int adjNode = adj.get(node).get(i).get(0);
+                //     if(visited[adjNode] == false) {
+                //         pq.add(new Pair(edW, adjNode));
+                //     }
+                // }
+
+                for(ArrayList<Integer> it : adj.get(node)) {
+                    int edW = it.get(1);
+                    int adjNode = it.get(0);
                     if(visited[adjNode] == false) {
                         pq.add(new Pair(edW, adjNode));
                     }
@@ -90,9 +98,18 @@ public class Prims {
                     mst.add(new ArrayList<>(List.of(node, parent)));
                 }
 
-                for(int i = 0; i < adj.get(node).size(); i++) {
-                    int edW = adj.get(node).get(i).get(1);
-                    int adjNode = adj.get(node).get(i).get(0);
+                // for(int i = 0; i < adj.get(node).size(); i++) {
+                //     int edW = adj.get(node).get(i).get(1);
+                //     int adjNode = adj.get(node).get(i).get(0);
+                //     int adjParent = node;
+                //     if(visited[adjNode] == false) {
+                //         pq.add(new Mst(edW, adjNode, adjParent));
+                //     }
+                // }
+
+                for(ArrayList<Integer> it : adj.get(node)) {
+                    int edW = it.get(1);
+                    int adjNode = it.get(0);
                     int adjParent = node;
                     if(visited[adjNode] == false) {
                         pq.add(new Mst(edW, adjNode, adjParent));
